@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modelagem_3D_Trabalho_final</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene vr-mode-ui="enabled: false" embedded arjs="debugUIEnabled: false">
+      <a-marker type="pattern" url="pattern-telefone.patt">
+        <a-video src="animaçao-telefone.mp4" rotation="-90 0 0" width="1" height="1"></a-video>
+          <a-asset-item id="modelo" src="reieitura-telefone-crt.glb"></a-asset-item>
+      </a-marker>
+
+      <a-marker type="pattern" url="pattern-olho.patt">
+        <a-entity 
+        gltf-model="#modelo"
+        scale="0.2 0.2 0.2"
+        position="0 0 0"
+        rotation="0 0 0"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-entity>
+    </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
